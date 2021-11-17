@@ -1,0 +1,39 @@
+
+function myAuthorizer(username, password, cb)
+{
+    db.query('SELECT pin FROM kortti WHERE idKortti = ?', [username],
+    function(dbError, dbResults, fields)
+    {
+        if(dbError)
+        {
+            response.json(dbError);
+        }
+        else
+        {
+            if(dbResults.lenght > 0)
+            {
+                bcrypt.compare(password, dbResult[0].password,
+                    function(err, res)
+                    {
+                        if(res)
+                        {
+                            console.log("Success!");
+                            return cb(null, true);
+                        }
+                        else
+                        {
+                            console.log("Wrong password!");
+                            return cb(null, false);
+                        }
+                        response.end();
+                    }
+                );
+            }
+            else
+            {
+                console.log("User does not exist");
+                return cb(null, false);
+            }
+        }
+    });
+}
