@@ -1,10 +1,11 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2021-11-15T20:49:52
+# Project created by QtCreator 2021-11-21T17:56:08
 #
 #-------------------------------------------------
 
 QT       += core gui
+QT +=network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    login.cpp \
+    menu.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    login.h \
+    menu.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    nappiversio.ui \
+    login.ui \
+    menu.ui
+RESOURCES = images/resources.qrc
