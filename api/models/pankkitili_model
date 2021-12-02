@@ -1,0 +1,23 @@
+const db = require('../database');
+
+const pankkitili = {
+getById:  function(id, callback) {
+          return db.query('select * from pankkitili where tilinumero=?', [id], callback);
+          },
+getAll:   function(callback) {
+          return db.query('select * from pankkitili', callback);
+          },
+add:      function(pankkitili, callback) {
+          return db.query('insert into pankkitili (saldo,credit) values(?,?)',
+          [pankkitili.saldo, pankkitili.credit],callback);
+          },
+delete:   function(id, callback) {
+          return db.query('delete from pankkitili where tilinumero=?', [id], callback);
+          },
+update:   function(id, pankkitili, callback) {
+          return db.query('update pankkitili set saldo=?,credit=? where tilinumero=?',
+          [pankkitili.saldo, pankkitili.credit, id], callback);
+          }
+};
+
+module.exports = pankkitili;
