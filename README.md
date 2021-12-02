@@ -1,5 +1,7 @@
-Tässä ois mun prototyyppiin kirjaillut API ja CRUD
+Tässä ois mun prototyyppiin kyhäämät API ja CRUD
 
-Näiden pitäis kyllä pikku viilauksella luikahtaa lopputuotteeseenkin
+Näiiä kyllä pikku viilauksella pelittää lopputuottekkin
 
 Lisäksi tietokanta proseduureineen, johon APi ja CRUD on pariutettu
+
+Kattelkaa ja kommentoikaa
