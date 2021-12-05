@@ -1,0 +1,32 @@
+const db = require('../database');
+const bcrypt = require('bcryptjs');
+const { query } = require('express');
+const { options } = require('../app');
+
+const saltRounds = 10;
+
+const pankkikortti ={
+get:        function(callback){
+            return db.query('select * from pankkikortti', callback);
+            },
+getById:    function(id, callback){
+            return db.query('select * from pankkikortti join asiakas on asiakas.idasiakas = pankkikortti.idasiakas where korttinumero=?',[id], callback);
+            },
+add:        function(pankkikortti, callback){
+            bcrypt.hash(pankkikortti.pin, saltRounds, function(err, hash){
+            return db.query('insert into pankkikortti (pin, credit, tilinumero, idasiakas, pinVaarin) values(?, ?, ?, ?)',
+            [hash, pankkikortti.credit, pankkikortti.tilinumero, pankkikortti.idasiakas], callback);
+            });
+            },
+delete:     function(id, callback){
+            return db.query('delete from pankkikortti where korttinumero=?', [id], callback);
+            },
+update:     function(id, pankkikortti, callback){
+            bcrypt.hash(pankkikortti.pin, saltRounds, function(err, hash){
+            return db.query('update pankkikortti set pin=?, credit=?, pankkitili=?, idasiakas=? where korttinumero=?',
+            [hash, pankkikortti.credit, pankkikortti.tilinumero, pankkikortti.idasiakas, id], callback);
+            });
+            }
+};
+
+module.exports = pankkikortti;

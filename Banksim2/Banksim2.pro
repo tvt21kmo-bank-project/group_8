@@ -1,14 +1,15 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2021-11-15T20:49:52
+# Project created by QtCreator 2021-11-30T13:23:56
 #
 #-------------------------------------------------
 
 QT       += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = bankautomat
+TARGET = Banksim2
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,10 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    siirto.cpp \
+    creditvaidebit.cpp \
+    menu.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    siirto.h \
+    creditvaidebit.h \
+    menu.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    creditvaidebit.ui \
+    tilitsiirto.ui \
+    menu.ui
