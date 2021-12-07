@@ -10,6 +10,7 @@
 
 
 
+
 namespace Ui {
 class menu;
 }
@@ -24,10 +25,28 @@ public:
 
 
 
+private slots:
+
+
+    void on_btnMsaldo_clicked();
+
+    void on_btnMtapahtumat_clicked();
+
+    void on_btnMnosta_clicked();
+
+    void on_btnMtalleta_clicked();
+
+    void on_btnMsiirra_clicked();
+
+    void on_btnMvaihda_clicked();
+
+    void on_btnMulos_clicked();
+
 private:
     Ui::menu *ui;
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
+
 };
 
 #endif // MENU_H

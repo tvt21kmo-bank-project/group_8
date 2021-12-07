@@ -10,6 +10,7 @@
 #include "menu.h"
 
 
+
 namespace Ui {
 class creditvaidebit;
 }
@@ -26,6 +27,8 @@ private slots:
     void on_btncredit_clicked();
 
     void on_btndebit_clicked();
+
+    void on_btnperuuta_clicked();
 
 private:
     Ui::creditvaidebit *ui;
