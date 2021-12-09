@@ -7,8 +7,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
-#include "menu.h"
 #include "creditvaidebit.h"
+#include "menu.h"
+#include "saldo.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,12 +27,16 @@ private slots:
     void on_btnKirjaudu_clicked();
     void loginSlot(QNetworkReply *reply);
 
+    void on_btnperu_clicked();
+
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
-    menu *objmenu;
     creditvaidebit *objkysy;
+    menu *objmenu;
+
+
 };
 
 #endif // MAINWINDOW_H

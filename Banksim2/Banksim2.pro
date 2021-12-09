@@ -27,18 +27,33 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    siirto.cpp \
     creditvaidebit.cpp \
-    menu.cpp
+    menu.cpp \
+    saldo.cpp \
+    tilitapahtumat.cpp \
+    nosto.cpp \
+    talleta.cpp \
+    siirra.cpp \
+    vaihda.cpp
 
 HEADERS += \
         mainwindow.h \
-    siirto.h \
     creditvaidebit.h \
-    menu.h
+    menu.h \
+    saldo.h \
+    tilitapahtumat.h \
+    nosto.h \
+    talleta.h \
+    siirra.h \
+    vaihda.h
 
 FORMS += \
         mainwindow.ui \
     creditvaidebit.ui \
-    tilitsiirto.ui \
-    menu.ui
+    menu.ui \
+    saldo.ui \
+    tilitapahtumat.ui \
+    nosto.ui \
+    talleta.ui \
+    siirra.ui \
+    vaihda.ui

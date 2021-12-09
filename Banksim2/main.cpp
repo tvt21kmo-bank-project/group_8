@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "menu.h"
 #include "creditvaidebit.h"
+#include "saldo.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
