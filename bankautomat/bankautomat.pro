@@ -1,10 +1,11 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2021-11-15T20:49:52
+# Project created by QtCreator 2021-11-21T17:56:08
 #
 #-------------------------------------------------
 
 QT       += core gui
+QT +=network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +26,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    login.cpp \
+    menu.cpp \
+    vaihdatili.cpp \
+    nostarahaa.cpp \
+    naytatapahtumia.cpp \
+    saldo.cpp \
+    talletarahaa.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    login.h \
+    menu.h \
+    vaihdatili.h \
+    nostarahaa.h \
+    naytatapahtumia.h \
+    saldo.h \
+    talletarahaa.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    nappiversio.ui \
+    menu.ui \
+    vaihdatili.ui \
+    login.ui \
+    login.ui \
+    nostarahaa.ui \
+    naytatapahtumia.ui \
+    saldo.ui \
+    talletarahaa.ui
+RESOURCES = images/resources.qrc
