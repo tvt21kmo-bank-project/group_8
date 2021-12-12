@@ -57,10 +57,10 @@ public:
         labelTervetuloa->setFont(font);
         labelTilinro = new QLabel(menu);
         labelTilinro->setObjectName(QStringLiteral("labelTilinro"));
-        labelTilinro->setGeometry(QRect(50, 120, 321, 61));
+        labelTilinro->setGeometry(QRect(50, 160, 321, 61));
         labelTilityyppi = new QLabel(menu);
         labelTilityyppi->setObjectName(QStringLiteral("labelTilityyppi"));
-        labelTilityyppi->setGeometry(QRect(50, 170, 381, 51));
+        labelTilityyppi->setGeometry(QRect(50, 230, 381, 51));
         btnSelaaTapahtumia = new QPushButton(menu);
         btnSelaaTapahtumia->setObjectName(QStringLiteral("btnSelaaTapahtumia"));
         btnSelaaTapahtumia->setGeometry(QRect(320, 360, 211, 61));
@@ -72,7 +72,7 @@ public:
         btnTalletaRahaa->setGeometry(QRect(320, 470, 211, 61));
         btnLogout = new QPushButton(menu);
         btnLogout->setObjectName(QStringLiteral("btnLogout"));
-        btnLogout->setGeometry(QRect(50, 240, 201, 121));
+        btnLogout->setGeometry(QRect(30, 320, 201, 121));
 
         retranslateUi(menu);
 
@@ -85,9 +85,9 @@ public:
         label->setText(QApplication::translate("menu", "MENU", Q_NULLPTR));
         btnVaihdaTili->setText(QApplication::translate("menu", "Vaihda tili", Q_NULLPTR));
         btnNaytaSaldo->setText(QApplication::translate("menu", "N\303\244yt\303\244 saldo", Q_NULLPTR));
-        labelTervetuloa->setText(QApplication::translate("menu", "\303\266", Q_NULLPTR));
-        labelTilinro->setText(QApplication::translate("menu", "\303\266", Q_NULLPTR));
-        labelTilityyppi->setText(QApplication::translate("menu", "\303\266", Q_NULLPTR));
+        labelTervetuloa->setText(QApplication::translate("menu", "\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266", Q_NULLPTR));
+        labelTilinro->setText(QApplication::translate("menu", "\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266", Q_NULLPTR));
+        labelTilityyppi->setText(QApplication::translate("menu", "\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266\303\266", Q_NULLPTR));
         btnSelaaTapahtumia->setText(QApplication::translate("menu", "Selaa tapahtumia", Q_NULLPTR));
         btnNostaRahaa->setText(QApplication::translate("menu", "Nosta rahaa", Q_NULLPTR));
         btnTalletaRahaa->setText(QApplication::translate("menu", "Talleta rahaa", Q_NULLPTR));
