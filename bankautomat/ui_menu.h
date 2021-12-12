@@ -33,6 +33,7 @@ public:
     QPushButton *btnNostaRahaa;
     QPushButton *btnTalletaRahaa;
     QPushButton *btnLogout;
+    QPushButton *btnTilisiirto;
 
     void setupUi(QWidget *menu)
     {
@@ -73,6 +74,9 @@ public:
         btnLogout = new QPushButton(menu);
         btnLogout->setObjectName(QStringLiteral("btnLogout"));
         btnLogout->setGeometry(QRect(50, 240, 201, 121));
+        btnTilisiirto = new QPushButton(menu);
+        btnTilisiirto->setObjectName(QStringLiteral("btnTilisiirto"));
+        btnTilisiirto->setGeometry(QRect(580, 470, 201, 61));
 
         retranslateUi(menu);
 
@@ -92,6 +96,7 @@ public:
         btnNostaRahaa->setText(QApplication::translate("menu", "Nosta rahaa", Q_NULLPTR));
         btnTalletaRahaa->setText(QApplication::translate("menu", "Talleta rahaa", Q_NULLPTR));
         btnLogout->setText(QApplication::translate("menu", "Kirjaudu ulos", Q_NULLPTR));
+        btnTilisiirto->setText(QApplication::translate("menu", "Tilisiirto???", Q_NULLPTR));
     } // retranslateUi
 
 };
