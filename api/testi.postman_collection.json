@@ -1,0 +1,1438 @@
+{
+	"info": {
+		"_postman_id": "14123ee4-babe-4194-beef-800c8811ac14",
+		"name": "testi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post_eka",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id1",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id2",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "summa",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/bank/tilisiirto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bank",
+						"tilisiirto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Näytä asiakas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password\n",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Näytä asiakas_pankkitili",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password\n",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas_pankkitili",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas_pankkitili"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Näytä pankkitili",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password\n",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkitili",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkitili"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Näytä pankkikortti",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password\n",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkikortti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkikortti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas/add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "etuNimi",
+							"value": "Pelottava",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sukuNimi",
+							"value": "Pontso",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "osoite",
+							"value": "Jokutie",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "77777777",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "pontso@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nimi",
+							"value": "saltsu",
+							"type": "text"
+						},
+						{
+							"key": "osoite",
+							"value": "saulitie 3",
+							"type": "text"
+						},
+						{
+							"key": "puhelinnro",
+							"value": "040 3334444",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas/update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "etuNimi",
+							"value": "Maikki",
+							"type": "text"
+						},
+						{
+							"key": "sukuNimi",
+							"value": "Maikkinen",
+							"type": "text"
+						},
+						{
+							"key": "osoite",
+							"value": "asdasd2",
+							"type": "text"
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text"
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas/delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas_pankkitili/add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "etuNimi",
+							"value": "Pelottava",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sukuNimi",
+							"value": "Pontso",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "osoite",
+							"value": "Jokutie",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "77777777",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "pontso@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tilinumero",
+							"value": "66",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnro",
+							"value": "040 3334444",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas_pankkitili",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas_pankkitili"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas_pankkitili/update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "etuNimi",
+							"value": "Maikki",
+							"type": "text"
+						},
+						{
+							"key": "sukuNimi",
+							"value": "Maikkinen",
+							"type": "text"
+						},
+						{
+							"key": "osoite",
+							"value": "asdasd2",
+							"type": "text"
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text"
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas_pankkitili/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas_pankkitili",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asiakas_pankkitili/delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/asiakas_pankkitili/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asiakas_pankkitili",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkikortti/add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "asiakas_idAsiakas",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tili_idTili",
+							"value": "7",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "pin",
+							"value": "1234",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "korttinumero",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pin",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "credit",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tilinumero",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pinVaarin",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkikortti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkikortti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkikortti/update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "asiakas_idAsiakas",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tili_idTili",
+							"value": "asdasd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "pin",
+							"value": "asdasdasd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "pin",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "credit",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tilinumero",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pinVaarin",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkikortti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkikortti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkikortti/delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkikortti/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkikortti",
+						"5"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkitili/add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tyyppi",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "saldo",
+							"value": "0",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "credit",
+							"value": "500",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "saldo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "creditsaldo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkitili",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkitili"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkitili/update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tyyppi",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "saldo",
+							"value": "7200",
+							"type": "text"
+						},
+						{
+							"key": "credit",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkitili/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkitili",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pankkitili/delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/pankkitili/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pankkitili",
+						"7"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tilitapahtumat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Saldokysely",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsersLogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsersList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsers/add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "pankki1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "osoite",
+							"value": "Jokutie",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "77777777",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "pontso@gmail.com",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsers/update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "osoite",
+							"value": "asdasd2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "puhelinnumero",
+							"value": "123123123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sPosti",
+							"value": "asdasdasdasd",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsers/delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrudUsersLogin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "a",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/login_users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login_users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
