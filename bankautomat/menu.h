@@ -10,6 +10,7 @@
 #include "naytatapahtumia.h"
 #include "saldo.h"
 #include "talletarahaa.h"
+#include "tilisiirto.h"
 #include <QDialog>
 
 namespace Ui {
@@ -35,6 +36,7 @@ private:
     talletaRahaa *objTalletaRahaa;
     saldo *objSaldo;
     vaihdaTili *objVaihdaTili;
+    tilisiirto *objTilisiirto;
     int korttiNro;
     int credit;
     int tilinumero;
@@ -50,6 +52,7 @@ private slots:
     void on_btnNostaRahaa_clicked();
     void on_btnTalletaRahaa_clicked();
     void on_btnLogout_clicked();
+    void on_btnTilisiirto_clicked();
 
 signals:
     void nollaaLogoutTimer();

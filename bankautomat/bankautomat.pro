@@ -29,6 +29,7 @@ SOURCES += \
         mainwindow.cpp \
     login.cpp \
     menu.cpp \
+    tilisiirto.cpp \
     vaihdatili.cpp \
     nostarahaa.cpp \
     naytatapahtumia.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
         mainwindow.h \
     login.h \
     menu.h \
+    tilisiirto.h \
     vaihdatili.h \
     nostarahaa.h \
     naytatapahtumia.h \
@@ -49,6 +51,7 @@ FORMS += \
         mainwindow.ui \
     nappiversio.ui \
     menu.ui \
+    tilisiirto.ui \
     vaihdatili.ui \
     login.ui \
     login.ui \
