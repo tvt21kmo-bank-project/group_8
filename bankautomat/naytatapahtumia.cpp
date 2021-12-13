@@ -65,6 +65,7 @@ void naytaTapahtumia::tapahtumat(QNetworkReply *reply)
     QByteArray response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
+    qDebug() << response_data;
     foreach (const QJsonValue &value, json_array)
     {
        QJsonObject json_obj = value.toObject();

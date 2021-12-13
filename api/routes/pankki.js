@@ -8,7 +8,7 @@ router.post('/credit_tilisiirto', function(request, response){
             response.json(err);
         }
         else{
-            response.json(dbResult);
+            response.json(dbResult[0]);
         }
     });
 });
@@ -30,7 +30,7 @@ router.post('/debit_tilisiirto', function(request, response){
             response.json(err);
         }
         else{
-            response.json(dbResult);
+            response.json(dbResult[0]);
         }
     });
 });
