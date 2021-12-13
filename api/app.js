@@ -13,7 +13,7 @@ dotenv.config();
 app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ))
 
 function myAuthorizer(username, password, cb){
-    if(username===process.env.authUser && password===process.env.authPass){
+    if(username===process.env.authUser && password===process.env.authPassword){
         return cb(null, true);
     }
     else{

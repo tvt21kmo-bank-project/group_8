@@ -2,16 +2,16 @@ const db = require('../database');
 
 const pankki ={
 credit_tilisiirto:  function(postData, callback) {
-                    return db.query('call credit_tilisiirto(?,?,?)',
-                    [postData.id1, postData.id2, postData.summa], callback);
+                    return db.query('call credit_tilisiirto(?,?,?,?,?,@a)',
+                    [postData.tilinumero1, postData.tilinumero2, postData.creditKayttaja, postData.creditVastaanottaja, postData.summa], callback);
                     },
 credit_to_debit:   function(postData, callback) {
                     return db.query('call credit_to_debit(?,?)',
                     [postData.id1, postData.summa], callback);
                     },          
 debit_tilisiirto:   function(postData, callback) {
-                    return db.query('call debit_tilisiirto(?,?,?)',
-                    [postData.id1, postData.id2, postData.summa], callback);
+                    return db.query('call debit_tilisiirto(?,?,?,?,?,@a)',
+                    [postData.tilinumero1, postData.tilinumero2, postData.creditKayttaja, postData.creditVastaanottaja, postData.summa], callback);
                     },
 debit_to_credit:    function(postData, callback) {
                     return db.query('call debit_to_credit(?,?)',

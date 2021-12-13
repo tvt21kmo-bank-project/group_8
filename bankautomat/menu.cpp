@@ -144,3 +144,14 @@ void menu::on_btnTalletaRahaa_clicked()
     delete objTalletaRahaa;
     objTalletaRahaa = nullptr;
 }
+
+void menu::on_btnTilisiirto_clicked()
+{
+    objTilisiirto = new tilisiirto(this, tilinumero, creditValittu, korttiNro);
+    objTilisiirto->setModal(true);
+    objTilisiirto->show();
+    objTilisiirto->exec();
+    delete objTilisiirto;
+    objTilisiirto = nullptr;
+}
+
