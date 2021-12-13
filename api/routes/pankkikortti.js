@@ -21,7 +21,7 @@ function(request, response)
     }
     else
     {
-        pankkikortti.getAll(function(err, dbResult)
+        pankkikortti.get(function(err, dbResult)
         {
             if(err)
             {
