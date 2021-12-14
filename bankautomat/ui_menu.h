@@ -96,7 +96,7 @@ public:
         btnNostaRahaa->setText(QApplication::translate("menu", "Nosta rahaa", Q_NULLPTR));
         btnTalletaRahaa->setText(QApplication::translate("menu", "Talleta rahaa", Q_NULLPTR));
         btnLogout->setText(QApplication::translate("menu", "Kirjaudu ulos", Q_NULLPTR));
-        btnTilisiirto->setText(QApplication::translate("menu", "Tilisiirto???", Q_NULLPTR));
+        btnTilisiirto->setText(QApplication::translate("menu", "Tilisiirto", Q_NULLPTR));
     } // retranslateUi
 
 };
