@@ -11,6 +11,9 @@ get:        function(callback){
 getById:    function(id, callback){
             return db.query('select * from pankkikortti join asiakas on asiakas.idasiakas = pankkikortti.idasiakas where korttinumero=?',[id], callback);
             },
+getAsiakastiedoillaById: function(id, callback){
+            return db.query('select * from pankkikortti join asiakas on asiakas.idasiakas = pankkikortti.idasiakas where korttinumero=?',[id], callback);
+            },
 add:        function(pankkikortti, callback){
             bcrypt.hash(pankkikortti.pin, saltRounds, function(err, hash){
             return db.query('insert into pankkikortti (pin, credit, tilinumero, idasiakas, pinVaarin) values(?, ?, ?, ?, ?)',
