@@ -31,6 +31,10 @@ var pankkitiliRouter = require('./routes/pankkitili');
 var tapahtumatRouter = require('./routes/tapahtumat');
 var loginRouter = require('./routes/login');
 var pankkiRouter = require('./routes/pankki');
+var delRouter = require('./routes/del');
+var usersRouter = require('./routes/users');
+var login_usersRouter = require('./routes/login_users');
+var yhdistelmatiedotRouter = require('./routes/yhdistelmatiedot');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,5 +49,9 @@ app.use('/pankkitili', pankkitiliRouter);
 app.use('/tapahtumat', tapahtumatRouter);
 app.use('/login', loginRouter);
 app.use('/pankki', pankkiRouter);
+app.use('/del', delRouter);
+app.use('/yhdistelmatiedot', yhdistelmatiedotRouter);
+app.use('/login_users', login_usersRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;

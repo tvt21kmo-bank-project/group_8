@@ -1,33 +1,22 @@
 const db = require('../database');
 
 const pankkitili = {
-    getById: function(id, callback)
-    {
-        return db.query('SELECT * FROM pankkitili WHERE tilinumero = ?', [id], callback);
-    },
-    getAll: function(callback)
-    {
-        return db.query('SELECT * FROM pankkitili', callback);
-    },
-    add: function(pankkitili, callback)
-    {
-        return db.query(
-            'INSERT INTO pankkitili(saldo, creditsaldo, luottoraja) VALUES(?, ?, ?)',
-            [pankkitili.saldo, pankkitili.creditsaldo, pankkitili.luottoraja],
-            callback
-        );
-    },
-    delete: function(id, callback)
-    {
-        return db.query('DELETE FROM pankkitili WHERE tilinumero = ?', [id], callback);
-    },
-    update: function(id, pankkitili, callback)
-    {
-        return db.query(
-            'UPDATE pankkitili SET saldo = ?, creditsaldo = ? WHERE tilinumero = ?',
-            [pankkitili.saldo, pankkitili.creditsaldo, id],
-            callback
-        );
-    }
+getById:  function(id, callback) {
+          return db.query('select * from pankkitili where tilinumero=?', [id], callback);
+          },
+getAll:   function(callback) {
+          return db.query('select * from pankkitili', callback);
+          },
+add:      function(pankkitili, callback) {
+          return db.query('insert into pankkitili (saldo,creditsaldo, luottoraja) values(?, ?, ?)',
+          [pankkitili.saldo, pankkitili.creditsaldo, pankkitili.luottoraja],callback);
+          },
+delete:   function(id, callback) {
+          return db.query('delete from pankkitili where tilinumero=?', [id], callback);
+          },
+update:   function(id, pankkitili, callback) {
+          return db.query('update pankkitili set saldo=?,creditsaldo=?, luottoraja = ? where tilinumero=?',
+          [pankkitili.saldo, pankkitili.creditsaldo, pankkitili.luottoraja, id], callback);
+          }
 };
 module.exports = pankkitili;
