@@ -87,7 +87,7 @@ void talletaRahaa::on_btnTalleta_clicked()
     if(talletettavaSumma > 5000)
     {
         QJsonObject json;
-        json.insert("id1", tilinumero);
+        json.insert("id1", korttinumero);
         json.insert("summa", 5000);
         QString site_url = "http://localhost:3000/pankki/talletus";
         QString credentials = "root:root";

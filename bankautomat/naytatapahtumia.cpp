@@ -30,7 +30,7 @@ naytaTapahtumia::~naytaTapahtumia()
 void naytaTapahtumia::haeTapahtumia()
 {
     QJsonObject json;
-    json.insert("id1", korttinumero);
+    json.insert("tilinumero1", tilinumero);
     json.insert("luotto", creditValittu);
     json.insert("alkaenRivilta", aloitusRivi);
     QString site_url = "http://localhost:3000/pankki/tilitapahtuma_katsaus";

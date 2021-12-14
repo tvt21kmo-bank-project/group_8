@@ -29,11 +29,12 @@ private slots:
 
 private:
     Ui::tilisiirto *ui;
-    int tilinumero;
+    int tilinumero1;
     bool creditValittu;
     int korttinumero;
     bool checkerBoxValittu;
     double saldoUlos;
+    int onnistuiko;
     QTimer *objTimer;
     QNetworkAccessManager *tilisiirtoManager;
     QNetworkReply *reply;

@@ -6,16 +6,16 @@ credit_tilisiirto:  function(postData, callback) {
                     [postData.tilinumero1, postData.tilinumero2, postData.creditKayttaja, postData.creditVastaanottaja, postData.summa], callback);
                     },
 credit_to_debit:   function(postData, callback) {
-                    return db.query('call credit_to_debit(?,?)',
-                    [postData.id1, postData.summa], callback);
+                    return db.query('call credit_to_debit(?,?, @a)',
+                    [postData.tilinumero1, postData.summa], callback);
                     },          
 debit_tilisiirto:   function(postData, callback) {
                     return db.query('call debit_tilisiirto(?,?,?,?,?,@a)',
                     [postData.tilinumero1, postData.tilinumero2, postData.creditKayttaja, postData.creditVastaanottaja, postData.summa], callback);
                     },
 debit_to_credit:    function(postData, callback) {
-                    return db.query('call debit_to_credit(?,?)',
-                    [postData.id1, postData.summa], callback);
+                    return db.query('call debit_to_credit(?,?, @a)',
+                    [postData.tilinumero1, postData.summa], callback);
                     },
 otto:               function(postData, callback) {
                     return db.query('call otto(?,?,?)',
@@ -43,7 +43,7 @@ pin_Katsaus:        function(postData, callback) {
                     },
 tilitapahtuma_katsaus:  function(postData, callback) {
                         return db.query('call tilitapahtuma_katsaus(?, ?, ?)',
-                        [postData.id1, postData.luotto, postData.alkaenRivilta], callback);
+                        [postData.tilinumero1, postData.luotto, postData.alkaenRivilta], callback);
                         }
 
 };
