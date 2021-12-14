@@ -126,19 +126,18 @@ void Paivita_Kortin_Tietoja::haeTiedot()
     korttiTiedotManager = new QNetworkAccessManager(this);
     connect(korttiTiedotManager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(kortinTiedotSlot(QNetworkReply*)));
-    reply = korttiTiedotManager->get(request);
+    reply2 = korttiTiedotManager->get(request);
 }
 
-void Paivita_Kortin_Tietoja::kortinTiedotSlot(QNetworkReply *reply)
+void Paivita_Kortin_Tietoja::kortinTiedotSlot(QNetworkReply *reply2)
 {
-    QByteArray response_data = reply->readAll();
+    QByteArray response_data = reply2->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
     foreach (const QJsonValue &value, json_array)
     {
 
         QJsonObject json_obj = value.toObject();
-//        korttinumero = QString::number(json_obj["korttinumero"].toInt());
         tilinumero = QString::number(json_obj["tilinumero"].toInt());
         luottoTila = QString::number(json_obj["credit"].toInt());
         pin = json_obj["pin"].toString();

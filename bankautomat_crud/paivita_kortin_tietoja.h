@@ -31,13 +31,14 @@ private slots:
     void on_btnPaivita_clicked();
 
     void PaivitaSlot(QNetworkReply *reply);
-    void kortinTiedotSlot(QNetworkReply *reply);
+    void kortinTiedotSlot(QNetworkReply *reply2);
 
 private:
     Ui::Paivita_Kortin_Tietoja *ui;
     QNetworkAccessManager *paivitaManager;
     QNetworkAccessManager *korttiTiedotManager;
     QNetworkReply *reply;
+    QNetworkReply *reply2;
 
     QString korttiId;
     QString pin;

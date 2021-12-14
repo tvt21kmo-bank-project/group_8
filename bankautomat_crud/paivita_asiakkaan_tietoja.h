@@ -30,7 +30,7 @@ private slots:
     void on_btnPaivita_clicked();
 
     void PaivitaSlot(QNetworkReply *reply);
-    void asiakasTiedotSlot(QNetworkReply *reply);
+    void asiakasTiedotSlot(QNetworkReply *reply2);
 
 private:
     Ui::Paivita_Asiakkaan_Tietoja *ui;
@@ -39,6 +39,8 @@ private:
     QNetworkReply *reply;
     QNetworkReply *reply2;
 
+
+    QString id;
     QString nimi;
     QString osoite;
     QString puhelinnro;

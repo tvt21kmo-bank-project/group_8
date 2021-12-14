@@ -21,7 +21,8 @@ void Paivita_Asiakkaan_Tietoja::on_btnTakaisin_clicked()
 void Paivita_Asiakkaan_Tietoja::on_btnPaivita_clicked()
 {
     QJsonObject json;
-    QString id = ui->leAsiakasId->text();
+    id = ui->leAsiakasId->text();
+
     QString nimi2 = ui->leNimi->text();
     QString osoite2 = ui->leOsoite->text();
     QString puhelinnro2 = ui->lePuhelinnumero->text();
@@ -33,10 +34,9 @@ void Paivita_Asiakkaan_Tietoja::on_btnPaivita_clicked()
     QByteArray data = credentials.toLocal8Bit().toBase64();
     QString headerData = "Basic " + data;
     request.setRawHeader("Authorization", headerData.toLocal8Bit());
+    this->haeTiedot();
 
-    Paivita_Asiakkaan_Tietoja objHae;
-    objHae.haeTiedot();
-
+    qDebug() << nimi << osoite << puhelinnro;
 
     if(nimi2 == "")
         json.insert("nimi", nimi);
@@ -68,7 +68,7 @@ void Paivita_Asiakkaan_Tietoja::on_btnPaivita_clicked()
 void Paivita_Asiakkaan_Tietoja::PaivitaSlot(QNetworkReply *reply)
 {
     QByteArray response_data = reply->readAll();
-    qDebug() << response_data;
+//    qDebug() << response_data;
     if(response_data == "1")
     {
         ui->leNimi->setText("");
@@ -89,10 +89,11 @@ void Paivita_Asiakkaan_Tietoja::PaivitaSlot(QNetworkReply *reply)
 
 void Paivita_Asiakkaan_Tietoja::haeTiedot()
 {
+//    qDebug() << "Kukkuu";
     QString site_url = "http://localhost:3000/asiakas/";
     QString credentials = "root:root";
-    QString asiakasId = ui->leAsiakasId->text();
-    QNetworkRequest request((site_url + asiakasId));
+    qDebug() << "Asiakas id: " << id;
+    QNetworkRequest request((site_url + id));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QByteArray data = credentials.toLocal8Bit().toBase64();
     QString headerData = "Basic " + data;
@@ -100,21 +101,24 @@ void Paivita_Asiakkaan_Tietoja::haeTiedot()
     asiakasTiedotManager = new QNetworkAccessManager(this);
     connect(asiakasTiedotManager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(asiakasTiedotSlot(QNetworkReply*)));
-    reply = asiakasTiedotManager->get(request);
+    reply2 = asiakasTiedotManager->get(request);
+//    qDebug() << "Kukkuu";
 }
 
-void Paivita_Asiakkaan_Tietoja::asiakasTiedotSlot(QNetworkReply *reply)
+void Paivita_Asiakkaan_Tietoja::asiakasTiedotSlot(QNetworkReply *reply2)
 {
-    QByteArray response_data = reply->readAll();
+//    qDebug() << "Kukkuu";
+    QByteArray response_data = reply2->readAll();
+//    qDebug() << response_data;
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
+//    qDebug() << json_array;
     foreach (const QJsonValue &value, json_array)
     {
-
         QJsonObject json_obj = value.toObject();
-//        korttinumero = QString::number(json_obj["korttinumero"].toInt());
         nimi = json_obj["nimi"].toString();
         osoite = json_obj["osoite"].toString();
         puhelinnro = json_obj["puhelinnro"].toString();
+//        qDebug() << nimi << osoite << puhelinnro;
     }
 }

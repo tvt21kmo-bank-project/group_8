@@ -22,8 +22,8 @@ delete:     function(id, callback){
             },
 update:     function(id, pankkikortti, callback){
             bcrypt.hash(pankkikortti.pin, saltRounds, function(err, hash){
-            return db.query('update pankkikortti set pin=?, credit=?, tilinumero=?, idasiakas=? where korttinumero=?',
-            [hash, pankkikortti.credit, pankkikortti.tilinumero, pankkikortti.idasiakas, id], callback);
+            return db.query('update pankkikortti set pin=?, credit=?, tilinumero=?, idasiakas=?, pinVaarin = ? where korttinumero=?',
+            [hash, pankkikortti.credit, pankkikortti.tilinumero, pankkikortti.idasiakas, pankkikortti.pinVaarin, id], callback);
             });
             },
 pin:        function(postData, callback) {

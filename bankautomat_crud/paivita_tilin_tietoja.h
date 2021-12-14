@@ -31,7 +31,7 @@ private slots:
     void on_btnPaivita_clicked();
 
     void PaivitaSlot(QNetworkReply *reply);
-    void tilinTiedotSlot(QNetworkReply *reply);
+    void tilinTiedotSlot(QNetworkReply *reply2);
 
     void on_btnYhdista_clicked();
 
@@ -40,6 +40,7 @@ private:
     QNetworkAccessManager *paivitaManager;
     QNetworkAccessManager *tiliTiedotManager;
     QNetworkReply *reply;
+    QNetworkReply *reply2;
 
     QString tilinumero;
     QString saldo;

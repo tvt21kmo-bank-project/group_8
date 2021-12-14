@@ -29,7 +29,7 @@ private slots:
     void on_btnTakaisin_clicked();
 
     void asiakkaanTiedotSlot(QNetworkReply *reply);
-    void kaikkiTiedotSlot(QNetworkReply *reply2);
+    void kaikkiTiedotSlot(QNetworkReply *reply);
 
 private:
     Ui::Nayta_Asiakkaan_Tiedot *ui;

@@ -105,12 +105,12 @@ void Paivita_Tilin_Tietoja::haeTiedot()
     tiliTiedotManager = new QNetworkAccessManager(this);
     connect(tiliTiedotManager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(tilinTiedotSlot(QNetworkReply*)));
-    reply = tiliTiedotManager->get(request);
+    reply2 = tiliTiedotManager->get(request);
 }
 
-void Paivita_Tilin_Tietoja::tilinTiedotSlot(QNetworkReply *reply)
+void Paivita_Tilin_Tietoja::tilinTiedotSlot(QNetworkReply *reply2)
 {
-    QByteArray response_data = reply->readAll();
+    QByteArray response_data = reply2->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
     foreach (const QJsonValue &value, json_array)
@@ -120,6 +120,7 @@ void Paivita_Tilin_Tietoja::tilinTiedotSlot(QNetworkReply *reply)
 //        korttinumero = QString::number(json_obj["korttinumero"].toInt());
         saldo = QString::number(json_obj["saldo"].toDouble());
         creditSaldo = QString::number(json_obj["creditsaldo"].toDouble());
+        luottoRaja = QString::number(json_obj["luottoraja"].toInt());
     }
 }
 
