@@ -37,6 +37,7 @@ private:
     saldo *objSaldo;
     vaihdaTili *objVaihdaTili;
     tilisiirto *objTilisiirto;
+    QTimer *objTimer;
     int korttiNro;
     int credit;
     int tilinumero;

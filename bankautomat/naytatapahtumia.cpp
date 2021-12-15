@@ -7,15 +7,17 @@ naytaTapahtumia::naytaTapahtumia(QWidget *parent, int korttinro, int tilinro, bo
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_PaintOnScreen);
     setParent(0);
+
     aloitusRivi = 0;
     korttinumero = korttinro;
     tilinumero = tilinro;
     creditValittu = credit;
+
     objTimer = new QTimer;
     connect(objTimer, &QTimer::timeout, this, close);
     objTimer->start(10000);
+
     haeTapahtumia();
     haeTilinTiedot();
 }
@@ -27,10 +29,10 @@ naytaTapahtumia::~naytaTapahtumia()
     objTimer = nullptr;
 }
 
-void naytaTapahtumia::haeTapahtumia()
+void naytaTapahtumia::haeTapahtumia()       // Lähetetään tietokantaan tilitapahtumien hakupyyntö
 {
     QJsonObject json;
-    json.insert("id1", korttinumero);
+    json.insert("tilinumero1", tilinumero);
     json.insert("luotto", creditValittu);
     json.insert("alkaenRivilta", aloitusRivi);
     QString site_url = "http://localhost:3000/pankki/tilitapahtuma_katsaus";
@@ -44,7 +46,7 @@ void naytaTapahtumia::haeTapahtumia()
     connect(tapahtumaManager, SIGNAL(finished (QNetworkReply*)),this, SLOT(tapahtumat(QNetworkReply*)));
     reply = tapahtumaManager->post(request, QJsonDocument(json).toJson());
 
-    if(aloitusRivi > 0)
+    if(aloitusRivi > 0)     // Aktivoidaan selaa edellisä nappi jos tilitapahtumia on selattu eteenpäin
     {
         ui->btnEdelliset->setEnabled(true);
     }
@@ -54,7 +56,7 @@ void naytaTapahtumia::haeTapahtumia()
     }
 }
 
-void naytaTapahtumia::tapahtumat(QNetworkReply *reply)
+void naytaTapahtumia::tapahtumat(QNetworkReply *reply)      // Käsitellään ja tulostetaan käyttäjälle tietokannasta saapuneet tilitapahtumatiedot
 {
     QString aikaleimatTuloste = "Pvm ja klo\n";
     QString summatTuloste = "Summa\n";
@@ -65,7 +67,6 @@ void naytaTapahtumia::tapahtumat(QNetworkReply *reply)
     QByteArray response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
-    qDebug() << response_data;
     foreach (const QJsonValue &value, json_array)
     {
        QJsonObject json_obj = value.toObject();
@@ -83,7 +84,7 @@ void naytaTapahtumia::tapahtumat(QNetworkReply *reply)
     ui->textEditTapahtumatyyppi->setText(tapahtumatTuloste);
     ui->textEditMaksaja->setText(maksajatTuloste);
 
-    if(i == 10)
+    if(i == 10)     // Jos tilitapahtumia tulostui max määrä eli 10 aktivoidaan mahdollisiuus selata seuraavia tapahtumia
     {
         ui->btnSeuraavat->setEnabled(true);
     }
@@ -94,7 +95,7 @@ void naytaTapahtumia::tapahtumat(QNetworkReply *reply)
     reply->deleteLater();
 }
 
-void naytaTapahtumia::haeTilinTiedot()
+void naytaTapahtumia::haeTilinTiedot()      // Lähetetään tietokantaan tilitietojen hakupyyntö
 {
     QJsonObject json;
     json.insert("id1", korttinumero);
@@ -110,11 +111,12 @@ void naytaTapahtumia::haeTilinTiedot()
     reply = tiliManager->post(request, QJsonDocument(json).toJson());
 }
 
-void naytaTapahtumia::tilitiedot(QNetworkReply *reply)
+void naytaTapahtumia::tilitiedot(QNetworkReply *reply)  // Tulostetaan formin otsikko-osioon tilin tiedot
 {
     double saldo = 0;
     double creditSaldo = 0;
     double luottoraja = 0;
+
     QString omistajanNimi;
     QByteArray response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
@@ -127,6 +129,7 @@ void naytaTapahtumia::tilitiedot(QNetworkReply *reply)
        omistajanNimi = json_obj["nimi"].toString();
        luottoraja = json_obj["luottoraja"].toDouble();
     }
+
     ui->labelTilitiedot_tilinOmistaja->setText(omistajanNimi);
     ui->labelTilitiedot_tilinumero->setText(QString::number(tilinumero));
     if(creditValittu == true)

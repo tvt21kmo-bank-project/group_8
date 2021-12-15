@@ -38,13 +38,11 @@ private slots:
     void on_btnLueKortti_clicked();
     void kuoletaKortti(int);
     void loginValmis(int);
-    void logoutTimerReset();
     void logout();
     void logoutIlmoitus();
     void avaaLogin();
 
 signals:
-    void nollaaLogoutTimer();
 };
 
 #endif // MAINWINDOW_H

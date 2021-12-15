@@ -7,7 +7,6 @@ saldo::saldo(QWidget *parent, int tilinro, bool credit, int korttinro) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_PaintOnScreen);
     setParent(0);
     ui->horizontalLayoutWidget_4->setVisible(false);
     korttinumero = korttinro;
@@ -26,7 +25,7 @@ saldo::~saldo()
     objTimer = nullptr;
 }
 
-void saldo::haeTiedot()
+void saldo::haeTiedot()     // Lähetetään tietokantaan tilitapahtumien hakupyyntö
 {
     QJsonObject json;
     json.insert("id1", korttinumero);
@@ -42,7 +41,7 @@ void saldo::haeTiedot()
     reply = saldoManager->post(request, QJsonDocument(json).toJson());
 }
 
-void saldo::naytaTiedot(QNetworkReply *reply)
+void saldo::naytaTiedot(QNetworkReply *reply)       // Tulostetaan näytölle responsena saadut tilitiedot
 {
     double saldo = 0;
     double creditSaldo = 0;
@@ -66,7 +65,7 @@ void saldo::naytaTiedot(QNetworkReply *reply)
     ui->labelKorttiNumero->setText(ui->labelKorttiNumero->text().append(QString::number(korttinumero)));
     ui->labelTiliOmistaja->setText(ui->labelTiliOmistaja->text().append(omistajanNimi));
     ui->labelTilinumero->setText(ui->labelTilinumero->text().append(QString::number(tilinumero)));
-    if(creditValittu == true)
+    if(creditValittu == true)       // Jos käytössä on credit kortti näytetään tilin saldo ja luottoraja. Nostettava saldo on saldo+luottoraja
     {
         ui->horizontalLayoutWidget_3->move(160, 370);
         ui->horizontalLayoutWidget_4->setVisible(true);

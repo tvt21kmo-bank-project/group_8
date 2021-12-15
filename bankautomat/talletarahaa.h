@@ -24,14 +24,18 @@ public:
 private slots:
     void on_btnTakaisin_clicked();
     void on_btnTalleta_clicked();
+    void talletetaanko(QNetworkReply *reply);
     void talletusTehty(QNetworkReply *reply);
 
 private:
     Ui::talletaRahaa *ui;
     int tilinumero;
     int korttinumero;
+    double talletettavaSumma;
+    double tehdytTalletukset;
     QTimer *objTimer;
     QNetworkAccessManager *panoManager;
+    QNetworkAccessManager *panojaManager;
     QNetworkReply *reply;
     QByteArray response_data;
 };
