@@ -94,25 +94,31 @@ color: rgb(0, 0, 0);
      <string>KIRJAUDU</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>240</y>
-     <width>601</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>230</y>
+      <width>601</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);
 font: 14pt &quot;Lucida Sans Unicode&quot;;
 </string>
-   </property>
-   <property name="text">
-    <string>        VÄÄRÄ PIN-KOODI
+    </property>
+    <property name="text">
+     <string>        VÄÄRÄ PIN-KOODI
  Ole hyvä ja yritä uudestaan</string>
-   </property>
+    </property>
+   </widget>
+   <zorder>lineEditLogin</zorder>
+   <zorder>label</zorder>
+   <zorder>btnLogin</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_2</zorder>
   </widget>
  </widget>
  <resources/>

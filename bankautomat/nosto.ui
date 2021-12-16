@@ -6,12 +6,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1050</width>
+    <width>868</width>
     <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"> *
+{
+font: century gothic;
+color:white;
+}
+QPushButton
+{
+background:#e9de72;
+border-radius:60px;
+
+}
+QPushButton
+{
+color:;
+border-radius:15px;
+}
+QFrame
+{
+background:#b5aa47;
+border-radius:15px;
+}
+QTextEdit
+{
+font: century gothic;
+color:white;
+}</string>
   </property>
   <widget class="QPushButton" name="btnTakaisin">
    <property name="geometry">
@@ -21,6 +49,15 @@
      <width>151</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>Takaisin</string>
@@ -35,6 +72,13 @@
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit
+{
+font: century gothic;
+color:black;
+}</string>
+   </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
@@ -48,26 +92,17 @@
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>100</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelOtsikko">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>100</y>
-     <width>531</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 12pt &quot;Microsoft Sans Serif&quot;;
-color: rgb(0, 0, 0);
-</string>
-   </property>
-   <property name="text">
-    <string>	Paljonkos aattelit nostaa?</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn20">
@@ -78,6 +113,15 @@ color: rgb(0, 0, 0);
      <width>151</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>20</string>
@@ -110,6 +154,15 @@ color: rgb(0, 0, 0);</string>
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>200</string>
    </property>
@@ -122,6 +175,15 @@ color: rgb(0, 0, 0);</string>
      <width>151</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>Muu summa</string>
@@ -136,6 +198,15 @@ color: rgb(0, 0, 0);</string>
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>500</string>
    </property>
@@ -148,6 +219,15 @@ color: rgb(0, 0, 0);</string>
      <width>151</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>40</string>
@@ -162,6 +242,15 @@ color: rgb(0, 0, 0);</string>
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>60</string>
    </property>
@@ -175,10 +264,78 @@ color: rgb(0, 0, 0);</string>
      <height>101</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>16</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>831</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="labelOtsikko">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>60</y>
+      <width>531</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>gothic</family>
+      <pointsize>26</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>	Paljonkos aattelit nostaa?</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>btnTakaisin</zorder>
+  <zorder>lineEditMuuSumma</zorder>
+  <zorder>btn100</zorder>
+  <zorder>btn20</zorder>
+  <zorder>btnOtaRahat</zorder>
+  <zorder>btn200</zorder>
+  <zorder>btnMuu</zorder>
+  <zorder>btn500</zorder>
+  <zorder>btn40</zorder>
+  <zorder>btn60</zorder>
+  <zorder>labelMuuSumma</zorder>
  </widget>
  <resources/>
  <connections/>

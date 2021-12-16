@@ -11,6 +11,7 @@
 #include "saldo.h"
 #include "talletarahaa.h"
 #include "tilisiirto.h"
+#include "nosto.h"
 #include <QDialog>
 
 namespace Ui {
@@ -32,7 +33,7 @@ private:
     QByteArray response_data;
     QNetworkReply *reply;
     QNetworkAccessManager *getManager;
-    nostaRahaa *objNostaRahaa;
+    nosto *objNosto;
     naytaTapahtumia *objNaytaTapahtumia;
     talletaRahaa *objTalletaRahaa;
     saldo *objSaldo;
