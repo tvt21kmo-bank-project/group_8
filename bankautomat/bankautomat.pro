@@ -28,35 +28,33 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     login.cpp \
-    menu.cpp \
     tilisiirto.cpp \
-    vaihdatili.cpp \
-    nostarahaa.cpp \
     naytatapahtumia.cpp \
     saldo.cpp \
-    talletarahaa.cpp
+    talletarahaa.cpp \
+    valitsetili.cpp \
+    valikko.cpp \
+    nosto.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
-    menu.h \
     tilisiirto.h \
-    vaihdatili.h \
-    nostarahaa.h \
     naytatapahtumia.h \
     saldo.h \
-    talletarahaa.h
+    talletarahaa.h \
+    valitsetili.h \
+    valikko.h \
+    nosto.h
 
 FORMS += \
         mainwindow.ui \
-    nappiversio.ui \
-    menu.ui \
     tilisiirto.ui \
-    vaihdatili.ui \
     login.ui \
-    login.ui \
-    nostarahaa.ui \
     naytatapahtumia.ui \
     saldo.ui \
-    talletarahaa.ui
+    talletarahaa.ui \
+    valitsetili.ui \
+    valikko.ui \
+    nosto.ui
 RESOURCES = images/resources.qrc
