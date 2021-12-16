@@ -6,17 +6,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    objTimer = new QTimer;
-    objLogin = new login(this);
     ui->label_5->hide();
     ui->label_6->hide();
+
+    objLogin = new login(this);
+    objTimer = new QTimer;
 
     connect(objLogin, SIGNAL(korttiEiNatsaa()), this, SLOT(korttiEiNatsaa()), Qt::QueuedConnection);
     connect(objLogin, SIGNAL(korttiOk()), this, SLOT(avaaLogin()), Qt::QueuedConnection);
     connect(objLogin, SIGNAL(loginOk(int)), this, SLOT(loginValmis(int)), Qt::QueuedConnection);
     connect(objLogin, SIGNAL(korttiAutuaammilleAutomaateille(int)), this, SLOT(kuoletaKortti(int)), Qt::QueuedConnection);
     connect(objTimer, SIGNAL(timeout()), this, SLOT(logout()));
-    connect(this, SIGNAL(nollaaLogoutTimer()), this, SLOT(logoutTimerReset()));
 }
 
 MainWindow::~MainWindow()
@@ -30,25 +30,8 @@ MainWindow::~MainWindow()
     objTimer = nullptr;
 }
 
-void MainWindow::korttiEiNatsaa()
+void MainWindow::on_btnLueKortti_clicked()      // Kortti luettu ja tiedot välitetään login-luokalle tarkastettavaksi
 {
-    QString korttiEiNatsaa = "Virhe sisäänkirjautumisessa!\n   Tarkista syötetty kortti";
-    ui->label_5->setText(korttiEiNatsaa);
-    ui->label_5->show();
-    ui->groupBox->hide();
-    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
-}
-
-void MainWindow::palautaNakyma()
-{
-    ui->groupBox->show();
-    ui->label_5->hide();
-    ui->label_6->hide();
-}
-
-void MainWindow::on_btnLueKortti_clicked()
-{
-    //emit nollaaLogoutTimer();           // Tälle varmaan ois toimivinta rakentaa keypPresEvent
     if(ui->lineEditKortti->text().toInt() > 0)
     {
         int nro = ui->lineEditKortti->text().toInt();
@@ -57,18 +40,7 @@ void MainWindow::on_btnLueKortti_clicked()
     }
 }
 
-void MainWindow::kuoletaKortti(int korttiID)
-{
-    QString korttiLukkoon =
-    "	  VÄÄRÄ PIN-KOODI\n\nPin-koodi syötetty väärin liian monta kertaa\n        Doge söi korttin ID#"+QString::number(korttiID);
-    ui->label_6->setText(korttiLukkoon);
-    ui->label_6->show();
-    ui->groupBox->hide();
-    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
-}
-
-
-void MainWindow::loginValmis(int korttiID)
+void MainWindow::loginValmis(int korttiID)      // Kirjautumistiedot ok ja login valmis. Käynnistetään pankkiautomaattiominaisuudet
 {
     objMenu = new menu;
     connect(objMenu, SIGNAL(kirjaaUlos()), this, SLOT(logout()));
@@ -76,32 +48,8 @@ void MainWindow::loginValmis(int korttiID)
     objLogin->close();
     objMenu->show();
     objMenu->setKirjautumistiedot(korttiID);
-    objTimer->stop();       // menun alla ei oo vielä signaaleja timerin resetointiin
 }
-
-void MainWindow::logoutTimerReset()
-{
-    objTimer->start(30000);
-}
-
-void MainWindow::logoutIlmoitus()
-{
-    QString logoutTeksti;
-    if(666 == 1)
-    {
-        logoutTeksti = "    AIKAPYSÄYTYS\n Sinut on nyt kirjattu ulos";
-    }
-    else
-    {
-        logoutTeksti = "         Kirjauduttu ulos";
-    }
-    ui->label_6->setText(logoutTeksti);
-    ui->label_6->show();
-    ui->groupBox->hide();
-    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
-}
-
-void MainWindow::avaaLogin()
+void MainWindow::avaaLogin()                    // Syötetty kortti löytyy tietokannasta. Avataan login form, jossa kysytään pin-koodi
 {
     ui->groupBox->hide();
     objLogin->setModal(true);
@@ -112,14 +60,47 @@ void MainWindow::avaaLogin()
     }
 }
 
-void MainWindow::logout()
+void MainWindow::logout()                       // Slot, johon välitetään menusta signaalin kun kirjaudutaan ulos pankkiautomaatilta
 {
     emit logoutIlmoitus();
     objLogin->logout();
     objMenu->close();
     delete objMenu;
     objMenu = nullptr;
-    objTimer->stop();
     this->show();
 }
 
+void MainWindow::logoutIlmoitus()               // Ilmoitusviesti käyttäjälle, että kortilla on kirjauduttu pankkiautomaatilta ulos
+{
+    QString logoutTeksti = "Kirjauduttu ulos";
+    ui->label_6->setText(logoutTeksti);
+    ui->label_6->show();
+    ui->groupBox->hide();
+    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
+}
+
+void MainWindow::kuoletaKortti(int korttiID)    // Ilmoitusviesti käyttäjälle, että kortilla on liian monta virheellistä kirjautumisyritystä ja kortti on  kuoletettu
+{
+    QString korttiLukkoon =
+    "	  VÄÄRÄ PIN-KOODI\n\nPin-koodi syötetty väärin liian monta kertaa\n        Doge söi korttin ID#"+QString::number(korttiID);
+    ui->label_6->setText(korttiLukkoon);
+    ui->label_6->show();
+    ui->groupBox->hide();
+    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
+}
+
+void MainWindow::korttiEiNatsaa()               // Ilmoitusviesti käyttäjälle, että syötettyä kortia ei löydy tietokannasta
+{
+    QString korttiEiNatsaa = "Virhe sisäänkirjautumisessa!\n   Tarkista syötetty kortti";
+    ui->label_5->setText(korttiEiNatsaa);
+    ui->label_5->show();
+    ui->groupBox->hide();
+    objTimer->singleShot(3500, this, SLOT(palautaNakyma()));
+}
+
+void MainWindow::palautaNakyma()                // Palauttaa formin alkuperäiseen ulkomuotoon
+{
+    ui->groupBox->show();
+    ui->label_5->hide();
+    ui->label_6->hide();
+}

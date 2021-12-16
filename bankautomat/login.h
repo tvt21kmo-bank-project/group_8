@@ -28,7 +28,6 @@ private slots:
     void korttiSlot(QNetworkReply *reply);
     void loginSlot(QNetworkReply *reply);
     void pinTarkastus(QNetworkReply *reply);
-    void resetLogoutTimer();
 
 private:
     Ui::login *ui;
@@ -47,7 +46,6 @@ signals:
     void korttiAutuaammilleAutomaateille(int);
     void korttiOk();
     void loginOk(int);
-    void resetTimer();
 };
 
 #endif // LOGIN_H

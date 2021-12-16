@@ -7,14 +7,15 @@ nostaRahaa::nostaRahaa(QWidget *parent, int tilinro, bool luotolle, int korttiNr
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_PaintOnScreen);
     setParent(0);
     setupUI("alkuarvot");
+
     tilinumero = tilinro;
     creditValittu = luotolle;
     korttinumero = korttiNro;
     muuSummaValikko = 0;
     nostettavaSumma = 0;
+
     objTimer = new QTimer;
     connect(objTimer, &QTimer::timeout, this, timerLogout);
     objTimer->start(10000);
@@ -27,7 +28,7 @@ nostaRahaa::~nostaRahaa()
     objTimer = nullptr;
 }
 
-void nostaRahaa::setupUI(QString tila)
+void nostaRahaa::setupUI(QString tila)          // Muotoillaan formin layouttia kulloisen toiminallisuuden vaiheen mukaiseksi
 {
     if(tila == "alkuarvot")
     {
@@ -133,11 +134,11 @@ void nostaRahaa::setupUI(QString tila)
     }
 }
 
-void nostaRahaa::tarkistaKate(int valittuSumma)
+void nostaRahaa::tarkistaKate(int valittuSumma)     // Haetaan tietokannasta tilin tiedot katteen riittävyyden tarkastusta varten
 {
     setupUI("loppuEvent");
 
-    int nostettavaSumma_int = valittuSumma;
+    int nostettavaSumma_int = valittuSumma;         // Laiska kun olen niin en jaksanut muuttaa aluksi valitsemaani datatyyppia jo kirjoitettuun koodiin niin vaihdetaan se nyt tässä
     nostettavaSumma = (double)nostettavaSumma_int;
 
     QJsonObject json;
@@ -154,12 +155,13 @@ void nostaRahaa::tarkistaKate(int valittuSumma)
     reply = atmManager->post(request, QJsonDocument(json).toJson());
 }
 
-void nostaRahaa::onkoKatetta(QNetworkReply *reply)
+void nostaRahaa::onkoKatetta(QNetworkReply *reply)  // Tarkastetaan riittääkö tilillä kate käyttäjän pyytämään nostotapahtumaan
 {
     double saldo = 0;
     double creditSaldo = 0;
     double luottoraja = 0;
     bool tilillaKatetta = false;
+
     QByteArray response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
@@ -218,7 +220,7 @@ void nostaRahaa::onkoKatetta(QNetworkReply *reply)
     reply->deleteLater();
 }
 
-void nostaRahaa::timerLogout()
+void nostaRahaa::timerLogout()          // mikäli käyttäjä jumittaa 10s painamatta mitään nappia suljetaan nostotapahtuma ja palaan menuun
 {
     ui->btnOtaRahat->hide();
     ui->labelMuuSumma->show();
@@ -229,10 +231,10 @@ void nostaRahaa::timerLogout()
 void nostaRahaa::on_btn20_clicked()
 {
     objTimer->start(10000);
-    this->tarkistaKate(20);
+    tarkistaKate(20);
 }
 
-void nostaRahaa::on_btn40_clicked()
+void nostaRahaa::on_btn40_clicked()     // Napeilla suoritetaan nostettavan rahasumman valinta
 {
     objTimer->start(10000);
     if(muuSummaValikko == 2)
@@ -241,26 +243,26 @@ void nostaRahaa::on_btn40_clicked()
     }
     else
     {
-    this->tarkistaKate(40);
+    tarkistaKate(40);
     }
 }
 
 void nostaRahaa::on_btn60_clicked()
 {
     objTimer->start(10000);
-    this->tarkistaKate(60);
+    tarkistaKate(60);
 }
 
 void nostaRahaa::on_btn100_clicked()
 {
     objTimer->start(10000);
-    this->tarkistaKate(100);
+    tarkistaKate(100);
 }
 
 void nostaRahaa::on_btn200_clicked()
 {
     objTimer->start(10000);
-    this->tarkistaKate(200);
+    tarkistaKate(200);
 }
 
 void nostaRahaa::on_btn500_clicked()
@@ -269,7 +271,7 @@ void nostaRahaa::on_btn500_clicked()
     if(muuSummaValikko == 2)
     {
         int x = ui->lineEditMuuSumma->text().toInt();
-        this->tarkistaKate(x);
+        tarkistaKate(x);
     }
     else if(muuSummaValikko == 1)
     {
@@ -277,7 +279,7 @@ void nostaRahaa::on_btn500_clicked()
     }
     else
     {
-    this->tarkistaKate(500);
+    tarkistaKate(500);
     }
 }
 
@@ -300,7 +302,7 @@ void nostaRahaa::on_btnTakaisin_clicked()
     }
 }
 
-void nostaRahaa::on_btnOtaRahat_clicked()
+void nostaRahaa::on_btnOtaRahat_clicked()               // Ota rahat napilla lähetetäåän tietokantaan pyyntö kirjata kyseinen nostotransaktio
 {
     ui->btnOtaRahat->setEnabled(false);
     ui->btnOtaRahat->setStyleSheet("border-image:");
@@ -323,7 +325,7 @@ void nostaRahaa::on_btnOtaRahat_clicked()
     reply = nostoManager->post(request, QJsonDocument(json).toJson());
 }
 
-void nostaRahaa::onnistuikoNosto(QNetworkReply *reply)
+void nostaRahaa::onnistuikoNosto(QNetworkReply *reply)      // Tarkastetaan responsetiedoista onnistuiko kirjaaminen tietokantaan. Mikäli ei niin revitään käyttäjältä rahat kourasta takaisin masiinaan ja kerrotaan, että vituiks meni
 {
     int onnistuiko;
     QByteArray response_data = reply->readAll();

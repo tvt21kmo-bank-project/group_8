@@ -125,4 +125,20 @@ router.post('/pin_Katsaus', function(request, response){
     });
 });
 
+router.get('/talletus_katsaus/:id?',
+function(request, response)
+{
+    pankki.talletus_katsaus(request.params.id, function(err, dbResult)
+    {
+        if(err)
+        {
+            response.json(err);
+        } 
+        else
+        {
+            response.json(dbResult[0]);
+        }
+    });
+});
+
 module.exports = router;

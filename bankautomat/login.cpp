@@ -11,12 +11,12 @@ login::login(QWidget *parent) :
     setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
     setAttribute(Qt::WA_NoSystemBackground, true);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setAttribute(Qt::WA_PaintOnScreen);
     setParent(0);
-    objTimer = new QTimer;
+
     luettuKortti = 0;
+
+    objTimer = new QTimer;
     connect(objTimer, &QTimer::timeout, this, logout);
-    connect(this, SIGNAL(resetTimer()), this, SLOT(resetLogoutTimer()));
 }
 
 login::~login()
@@ -32,8 +32,10 @@ void login::logout()
     this->reject();
 }
 
-void login::tarkistaKortti(int korttiID)
+void login::tarkistaKortti(int korttiID)            // Lähetetään tietokantaan tarkastuspyyntö löytyykö sieltä syötetty kortti
 {
+    luettuKortti = korttiID;
+
     QString site_url="http://localhost:3000/login/";
     site_url.append(QString::number(korttiID));
     QString credentials="root:root";
@@ -45,12 +47,12 @@ void login::tarkistaKortti(int korttiID)
     korttiManager = new QNetworkAccessManager(this);
     connect(korttiManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(korttiSlot(QNetworkReply*)));
     reply = korttiManager->get(request);
-    luettuKortti = korttiID;
 }
 
-void login::korttiSlot(QNetworkReply *reply)
+void login::korttiSlot(QNetworkReply *reply)        //
 {
     int tulos = 0;
+
     response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
@@ -59,6 +61,7 @@ void login::korttiSlot(QNetworkReply *reply)
        QJsonObject json_obj = value.toObject();
        tulos=json_obj["pass"].toInt();
     }
+
     if(tulos == 1)
     {
         objTimer->start(10000);
@@ -69,12 +72,14 @@ void login::korttiSlot(QNetworkReply *reply)
         luettuKortti = 0;
         emit korttiEiNatsaa();
     }
+
     reply->deleteLater();
 }
 
 void login::on_btnLogin_clicked()
 {
-    emit resetTimer();
+    objTimer->start(10000);
+
     QJsonObject json;
     json.insert("korttinumero", luettuKortti);
     json.insert("pin", ui->lineEditLogin->text());
@@ -88,6 +93,7 @@ void login::on_btnLogin_clicked()
     loginManager = new QNetworkAccessManager(this);
     connect(loginManager, SIGNAL(finished (QNetworkReply*)),this, SLOT(loginSlot(QNetworkReply*)));
     reply = loginManager->post(request, QJsonDocument(json).toJson());
+
     ui->lineEditLogin->clear();
 }
 
@@ -133,6 +139,7 @@ void login::loginSlot(QNetworkReply *reply)
 void login::pinTarkastus(QNetworkReply *reply)
 {
     int vaarinLkm = 0;
+
     QByteArray response_data = reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();
@@ -147,7 +154,6 @@ void login::pinTarkastus(QNetworkReply *reply)
         luettuKortti = 0;
         this->hide();
     }
-
     else
     {
         ui->groupBox->hide();
@@ -161,8 +167,4 @@ void login::pinTarkastus(QNetworkReply *reply)
     reply->deleteLater();
 }
 
-void login::resetLogoutTimer()
-{
-    objTimer->start(10000);
-}
 
