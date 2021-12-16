@@ -12,7 +12,7 @@ router.post('/credit_tilisiirto', function(request, response){
         }
     });
 });
-
+//.
 router.post('/credit_to_debit', function(request, response){
     pankki.credit_to_debit(request.body, function(err, dbResult){
         if(err){
