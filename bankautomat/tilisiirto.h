@@ -29,7 +29,7 @@ private slots:
 
 private:
     Ui::tilisiirto *ui;
-    int tilinumero;
+    int tilinumero1;
     bool creditValittu;
     int korttinumero;
     bool checkerBoxValittu;

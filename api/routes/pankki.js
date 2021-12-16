@@ -19,7 +19,7 @@ router.post('/credit_to_debit', function(request, response){
             response.json(err);
         }
         else{
-            response.json(dbResult);
+            response.json(dbResult[0]);
         }
     });
 });
@@ -41,7 +41,7 @@ router.post('/debit_to_credit', function(request, response){
             response.json(err);
         } 
         else{
-            response.json(dbResult);
+            response.json(dbResult[0]);
         }
     });
 
@@ -57,18 +57,6 @@ router.post('/otto', function(request, response){
         }
     });
 });
-
-router.post('/otto_transfer', function(request, response){
-    pankki.otto_transfer(request.body, function(err, dbResult){
-        if(err){
-            response.json(err);
-        }
-        else{
-            response.json(dbResult);
-        }
-    });
-});
-
 
 router.post('/saldo_katsaus', function(request, response){
     pankki.saldo_katsaus(request.body, function(err, dbResult){

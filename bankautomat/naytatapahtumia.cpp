@@ -115,7 +115,6 @@ void naytaTapahtumia::tilitiedot(QNetworkReply *reply)  // Tulostetaan formin ot
 {
     double saldo = 0;
     double creditSaldo = 0;
-    double luottoraja = 0;
 
     QString omistajanNimi;
     QByteArray response_data = reply->readAll();
@@ -127,7 +126,6 @@ void naytaTapahtumia::tilitiedot(QNetworkReply *reply)  // Tulostetaan formin ot
        saldo = json_obj["saldo"].toDouble();
        creditSaldo = json_obj["creditsaldo"].toDouble();
        omistajanNimi = json_obj["nimi"].toString();
-       luottoraja = json_obj["luottoraja"].toDouble();
     }
 
     ui->labelTilitiedot_tilinOmistaja->setText(omistajanNimi);

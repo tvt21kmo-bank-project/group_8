@@ -11,7 +11,7 @@
 #include <QJsonObject>
 #include <QTimer>
 #include "login.h"
-#include "menu.h"
+#include "valikko.h"
 #include <QDialog>
 
 namespace Ui {
@@ -28,7 +28,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    menu *objMenu;
+    valikko *objValikko;
     login *objLogin;
     QTimer *objTimer;
 

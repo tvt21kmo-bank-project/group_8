@@ -24,8 +24,8 @@ MainWindow::~MainWindow()
     delete ui;
     delete objLogin;
     objLogin = nullptr;
-    delete objMenu;
-    objMenu = nullptr;
+    delete objValikko;
+    objValikko = nullptr;
     delete objTimer;
     objTimer = nullptr;
 }
@@ -42,12 +42,12 @@ void MainWindow::on_btnLueKortti_clicked()      // Kortti luettu ja tiedot väli
 
 void MainWindow::loginValmis(int korttiID)      // Kirjautumistiedot ok ja login valmis. Käynnistetään pankkiautomaattiominaisuudet
 {
-    objMenu = new menu;
-    connect(objMenu, SIGNAL(kirjaaUlos()), this, SLOT(logout()));
+    objValikko = new valikko;
+    connect(objValikko, SIGNAL(kirjaaUlos()), this, SLOT(logout()));
     MainWindow::hide();
     objLogin->close();
-    objMenu->show();
-    objMenu->setKirjautumistiedot(korttiID);
+    objValikko->show();
+    objValikko->setKirjautumistiedot(korttiID);
 }
 void MainWindow::avaaLogin()                    // Syötetty kortti löytyy tietokannasta. Avataan login form, jossa kysytään pin-koodi
 {
@@ -64,9 +64,9 @@ void MainWindow::logout()                       // Slot, johon välitetään men
 {
     emit logoutIlmoitus();
     objLogin->logout();
-    objMenu->close();
-    delete objMenu;
-    objMenu = nullptr;
+    objValikko->close();
+    delete objValikko;
+    objValikko = nullptr;
     this->show();
 }
 
