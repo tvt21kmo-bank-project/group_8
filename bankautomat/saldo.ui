@@ -13,24 +13,39 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="btnTakaisin">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>440</y>
-     <width>161</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Takaisin</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true"> *
+{
+font: century gothic;
+color:white;
+}
+QPushButton
+{
+background:#e9de72;
+border-radius:60px;
+
+}
+QPushButton
+{
+color:;
+border-radius:15px;
+}
+QFrame
+{
+background:#b5aa47;
+border-radius:15px;
+}
+QTextEdit
+{
+font: century gothic;
+color:white;
+}</string>
+  </property>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>240</y>
+     <y>290</y>
      <width>581</width>
      <height>41</height>
     </rect>
@@ -38,6 +53,15 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QLabel" name="labelOtsikkoKortti">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Pankkikortti</string>
       </property>
@@ -45,6 +69,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelKorttiNumero">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Numero: </string>
       </property>
@@ -52,6 +85,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelKorttityyppi">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -63,7 +105,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>320</y>
+     <y>370</y>
      <width>391</width>
      <height>61</height>
     </rect>
@@ -71,6 +113,15 @@
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <widget class="QLabel" name="labelOtsikkoSaldo">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Tililtä nostettavissa oleva saldo:</string>
       </property>
@@ -78,6 +129,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelNostettavaSaldo">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -89,7 +149,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>280</y>
+     <y>330</y>
      <width>581</width>
      <height>41</height>
     </rect>
@@ -97,6 +157,15 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QLabel" name="labelOtsikkoTili">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Pankkitili</string>
       </property>
@@ -104,6 +173,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelTilinumero">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Numero: </string>
       </property>
@@ -111,6 +189,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelTiliOmistaja">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Omistaja: </string>
       </property>
@@ -122,31 +209,22 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>175</y>
-     <width>251</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Pvm: </string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelOtsikko">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>80</y>
+     <y>155</y>
      <width>261</width>
-     <height>61</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>gothic</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
-    <string>SALDO</string>
+    <string>Pvm: </string>
    </property>
   </widget>
   <widget class="QLabel" name="labelKlo">
@@ -154,9 +232,18 @@
     <rect>
      <x>160</x>
      <y>205</y>
-     <width>231</width>
-     <height>21</height>
+     <width>261</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>gothic</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>Klo: </string>
@@ -166,7 +253,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>320</y>
+     <y>370</y>
      <width>391</width>
      <height>41</height>
     </rect>
@@ -174,6 +261,15 @@
    <layout class="QHBoxLayout" name="horizontalLayout_4">
     <item>
      <widget class="QLabel" name="labelSaldo">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Saldo: </string>
       </property>
@@ -181,6 +277,15 @@
     </item>
     <item>
      <widget class="QLabel" name="labelLuottoraja">
+      <property name="font">
+       <font>
+        <family>gothic</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Luottoraja: </string>
       </property>
@@ -188,6 +293,76 @@
     </item>
    </layout>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>811</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="btnTakaisin">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>460</y>
+      <width>161</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>gothic</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Takaisin</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelOtsikko">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>60</y>
+      <width>261</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>gothic</family>
+      <pointsize>26</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>SALDO</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>horizontalLayoutWidget_3</zorder>
+  <zorder>horizontalLayoutWidget_2</zorder>
+  <zorder>labelPvm</zorder>
+  <zorder>labelKlo</zorder>
+  <zorder>horizontalLayoutWidget_4</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -28,7 +28,6 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QLabel *label;
-    QLabel *label_4;
     QGroupBox *groupBox;
     QPushButton *btnLueKortti;
     QLabel *label_2;
@@ -61,13 +60,6 @@ public:
         label->setFont(font);
         label->setStyleSheet(QLatin1String("font: 12pt \"Comic Sans MS\";\n"
 "color: rgb(0, 0, 0);"));
-        label_4 = new QLabel(centralWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(180, 520, 811, 21));
-        QFont font1;
-        font1.setPointSize(7);
-        label_4->setFont(font1);
-        label_4->setStyleSheet(QStringLiteral("color: rgb(255, 0, 0);"));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(0, 0, 920, 549));
@@ -144,7 +136,6 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         groupBox->raise();
         label->raise();
-        label_4->raise();
         label_5->raise();
         label_6->raise();
 
@@ -160,7 +151,6 @@ public:
         centralWidget->setAccessibleName(QString());
 #endif // QT_NO_ACCESSIBILITY
         label->setText(QApplication::translate("MainWindow", "Tarttetko n\303\244\303\244 massia? T\303\244\303\244lt\303\244 sit\303\244 saa", Q_NULLPTR));
-        label_4->setText(QApplication::translate("MainWindow", "*formlayout on karkeaversio toiminnallisuuksien testausta varten*", Q_NULLPTR));
         groupBox->setTitle(QString());
         btnLueKortti->setText(QApplication::translate("MainWindow", "LUE KORTTI", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "SY\303\226T\303\204 PANKKIKORTTI", Q_NULLPTR));

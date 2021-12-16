@@ -1,17 +1,12 @@
 #ifndef VALIKKO_H
 #define VALIKKO_H
 
-#include <QWidget>
-#include <QtNetwork>
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
 #include "valitsetili.h"
-#include "nostarahaa.h"
+#include "nosto.h"
 #include "naytatapahtumia.h"
 #include "saldo.h"
 #include "talletarahaa.h"
 #include "tilisiirto.h"
-#include <QDialog>
 
 namespace Ui {
 class valikko;
@@ -32,7 +27,7 @@ private:
     QByteArray response_data;
     QNetworkReply *reply;
     QNetworkAccessManager *getManager;
-    nostaRahaa *objNostaRahaa;
+    nosto *objNosto;
     naytaTapahtumia *objNaytaTapahtumia;
     talletaRahaa *objTalletaRahaa;
     saldo *objSaldo;

@@ -137,12 +137,12 @@ void valikko::on_btnSelaaTapahtumia_clicked()
 void valikko::on_btnNostaRahaa_clicked()
 {
     objTimer->stop();
-    objNostaRahaa = new nostaRahaa(this, tilinumero, creditValittu, korttiNro);
-    objNostaRahaa->setModal(true);
-    objNostaRahaa->show();
-    objNostaRahaa->exec();
-    delete objNostaRahaa;
-    objNostaRahaa = nullptr;
+    objNosto = new nosto(this, tilinumero, creditValittu, korttiNro);
+    objNosto->setModal(true);
+    objNosto->show();
+    objNosto->exec();
+    delete objNosto;
+    objNosto = nullptr;
     objTimer->start(30000);
 }
 
