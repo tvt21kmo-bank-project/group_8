@@ -206,17 +206,28 @@ void tilisiirto::siirtoTehty(QNetworkReply *reply)
     {
         QJsonObject json_obj = value.toObject();
         saldoUlos = json_obj["saldoUlos"].toDouble();
+<<<<<<< Updated upstream
         onnistuiko = json_obj["onnistuiko"].toInt();  // tähän pitää löytää tapa saada tuo onnistuiko ulos
         qDebug() << onnistuiko;
     }
     if(saldoUlos >= 0 && onnistuiko == 0)
+=======
+    }
+    qDebug() << saldoUlos;
+    if(saldoUlos >= 0)
+>>>>>>> Stashed changes
     {
         qDebug() << "TUltiin tänne :D ";
         setupUI("talletusOnnistui");
     }
+<<<<<<< Updated upstream
     else if (onnistuiko == 1)
     {
         qDebug() << "Nytpä tultiin tänne ekaa kertaa :D";
+=======
+    else if (saldoUlos == -1)
+    {
+>>>>>>> Stashed changes
         setupUI("siirtoOnnistui");
     }
     else

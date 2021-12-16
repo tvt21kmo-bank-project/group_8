@@ -1,6 +1,0 @@
-SQL_SERVER = 'mysql://testi:testi@localhost:3306/pankkisimulaattori'
-
-authUser = root
-authPassword = root
-
-SQL_USERS_SERVER = 'mysql://testi:testi@localhost:3306/bankautomat_tunnukset'
