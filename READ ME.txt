@@ -1,5 +1,0 @@
-Dogemaatti väännetty toimimaan Saulin tietokannan kanssa
-
-Tarvii toimiakseen pankkiautomaatti_tietokantadump filun tietokannan 
-
-Tietokannassa on pankkikortit 4, 5, 7 ja 8. Kaikien pin on 1234
