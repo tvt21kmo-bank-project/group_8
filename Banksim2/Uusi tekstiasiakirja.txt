@@ -1,7 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>images/vuoret.jpg</file>
-<file>images/nuurdea_logo.jpg</file>
-   
-</qresource>
-</RCC>
